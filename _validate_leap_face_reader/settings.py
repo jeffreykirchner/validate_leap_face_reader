@@ -1,5 +1,5 @@
 """
-Django settings for multi_user_socket_template project.
+Django settings for validate_leap_face_reader project.
 """
 
 from pathlib import Path
@@ -47,8 +47,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = '_multi_user_socket_template.urls'
-ADMIN_SITE_HEADER = 'Multi User Socket Template Administration'
+ROOT_URLCONF = '_validate_leap_face_reader.urls'
+ADMIN_SITE_HEADER = 'Validate Leap Face Reader Administration'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -64,16 +64,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                '_multi_user_socket_template.context_processors.get_debug',
-                '_multi_user_socket_template.context_processors.get_auth_account_url',
-                '_multi_user_socket_template.context_processors.get_auth_password_reset_url',
+                '_validate_leap_face_reader.context_processors.get_debug',
+                '_validate_leap_face_reader.context_processors.get_auth_account_url',
+                '_validate_leap_face_reader.context_processors.get_auth_password_reset_url',
             ],
         },
     },
 ]
 
-#WSGI_APPLICATION = '_multi_user_socket_template.wsgi.application'
-ASGI_APPLICATION = '_multi_user_socket_template.asgi.application'
+#WSGI_APPLICATION = '_validate_leap_face_reader.wsgi.application'
+ASGI_APPLICATION = '_validate_leap_face_reader.asgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
