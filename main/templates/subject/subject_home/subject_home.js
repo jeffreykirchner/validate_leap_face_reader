@@ -10,7 +10,7 @@ axios.defaults.xsrfCookieName = "csrftoken";
 let subject_status_overlay = {container:null, current_period_label:null, time_remaining_label:null, profit_label:null};
 let pixi_target = null;                             //target sprite for your avatar
 let pixi_mini_map = {container:null};               //mini map container
-let pixi_notices = {container:null, notices:{}};    //notices
+let pixi_notices = {container:null, notices:{}};    //shared runtime notices
 let pixi_notices_key = 0;
 
 let last_location_update = Date.now();              //last time location was updated
@@ -47,8 +47,6 @@ let app = Vue.createApp({
 
                     instructions : {{instructions|safe}},
                     instruction_pages_show_scroll : false,
-
-                    notices_seen: [],
 
                     // modals
                     end_game_modal : null,
@@ -369,8 +367,6 @@ let app = Vue.createApp({
 
             app.setup_pixi_minimap();
             app.remove_all_notices();
-
-            app.notices_seen = [];
         },
 
         /**
@@ -465,23 +461,6 @@ let app = Vue.createApp({
                     }
                 }
             }
-
-            //add notices
-            for(let i in app.session.parameter_set.parameter_set_notices)
-            {
-                let notice = app.session.parameter_set.parameter_set_notices[i];
-
-                if(notice.start_period == app.session.world_state.current_period && 
-                   notice.start_time >= app.session.world_state.time_remaining &&
-                   app.notices_seen.indexOf(notice.id) === -1)
-                {
-                    app.add_notice(notice.text, notice.end_period, notice.end_time);
-                    app.notices_seen.push(notice.id);
-                }
-            }
-
-            //update any notices on screen
-            app.update_notices();
 
             //update barriers
             app.update_barriers();
