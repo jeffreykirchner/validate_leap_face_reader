@@ -26,14 +26,6 @@ let app = Vue.createApp({
                         id:0,
                     },
 
-                    current_parameter_set_barrier : {
-                        id:0,
-                    },
-
-                    current_parameter_set_ground : {
-                        id:0,
-                    },
-
                     parameterset_form_ids: {{parameterset_form_ids|safe}},
 
                     upload_file: null,
@@ -128,8 +120,6 @@ let app = Vue.createApp({
             app.edit_parameterset_player_modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('edit_parameterset_player_modal'), {keyboard: false})
             app.upload_parameter_set_modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('upload_parameter_set_modal'), {keyboard: false})   
             app.edit_parameterset_group_modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('edit_parameterset_group_modal'), {keyboard: false})
-            app.edit_parameterset_barrier_modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('edit_parameterset_barrier_modal'), {keyboard: false})
-            app.edit_parameterset_ground_modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('edit_parameterset_ground_modal'), {keyboard: false})
 
             document.getElementById('import_parameters_modal').addEventListener('hidden.bs.modal', app.hide_import_parameters);
             document.getElementById('edit_parameterset_modal').addEventListener('hidden.bs.modal', app.hide_edit_parameter_set);
@@ -170,10 +160,6 @@ let app = Vue.createApp({
         {%include "staff/staff_session_parameters/control/control.js"%}
         {%include "staff/staff_session_parameters/players/players.js"%}
         {%include "staff/staff_session_parameters/groups/groups.js"%}
-        {%include "staff/staff_session_parameters/barriers/barriers.js"%}
-        {%include "staff/staff_session_parameters/grounds/grounds.js"%}
-
-
         {%include "js/help_doc.js"%}
     
         /** clear form error messages
