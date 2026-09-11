@@ -81,8 +81,7 @@ move_avatar: function move_avatar(delta, player_id)
                    width:container.width,
                    height:container.height};  
         
-        if(app.check_walls_intersection(rect1) || 
-           app.check_barriers_intersection(rect1, parameter_set_group, obj.parameter_set_player_id) ||
+        if(app.check_barriers_intersection(rect1, parameter_set_group, obj.parameter_set_player_id) ||
            app.check_ground_intersection(rect1))
         {
             obj.current_location =  Object.assign({}, temp_current_location);  
@@ -196,8 +195,7 @@ search_for_path_around_walls: function search_for_path_around_walls(starting_rec
                                 search_grid.parent = v;
                             }
                         }
-                        else if(!app.check_walls_intersection(rect1) && 
-                                !app.check_barriers_intersection(rect1, parameter_set_group, parameter_set_player) &&
+                        else if(!app.check_barriers_intersection(rect1, parameter_set_group, parameter_set_player) &&
                                 !app.check_ground_intersection(rect1)) 
                         {
                             new_search_grid[v] = {rect:rect1, 
